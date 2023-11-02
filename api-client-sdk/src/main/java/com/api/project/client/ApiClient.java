@@ -7,7 +7,9 @@ import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONUtil;
 import com.api.project.model.User;
 import com.api.project.utils.SignUtil;
+import lombok.SneakyThrows;
 
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
