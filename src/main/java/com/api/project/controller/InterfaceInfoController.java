@@ -289,7 +289,7 @@ public class InterfaceInfoController {
         User loginUser = userService.getLoginUser(request);
         String accessKey = loginUser.getAccessKey();
         String secretKey = loginUser.getSecretKey();
-        // 现在我们要根据用户自己的 ak、sk 调用，所以这个地方就不能复用 YuApiClient 了。
+        // 现在我们要根据用户自己的 ak、sk 调用，所以这个地方就不能复用 ApiClient 了。
         // 这里要新建一个 client，要不然始终用的是管理员的账户、密码来测试，这样肯定不对，也会存在刷量的风险。
         ApiClient tempClient = new ApiClient(accessKey,secretKey);
         Gson gson = new Gson();

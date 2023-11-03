@@ -10,4 +10,12 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface UserInterfaceInfoService extends IService<UserInterfaceInfo> {
 
     void validUserInterfaceInfo(UserInterfaceInfo userInterfaceInfo, boolean add);
+
+    /**
+     * 调用接口统计
+     * @param interfaceInfoId 接口id
+     * @param userId 用户id
+     * @return
+     */
+    Boolean invokeCount(long interfaceInfoId, long userId);
 }

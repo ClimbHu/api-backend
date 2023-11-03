@@ -1,6 +1,5 @@
 package com.api.project.apiinterface.controller;
 
-import cn.hutool.core.net.URLDecoder;
 import com.api.project.model.User;
 import com.api.project.utils.SignUtil;
 import org.springframework.web.bind.annotation.*;
@@ -16,12 +15,13 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/name")
 public class NameController {
 
-    @GetMapping("/")
-    public String getNameByGet(String name) {
+    @GetMapping("/get")
+    public String getNameByGet(String name, HttpServletRequest request) {
+        System.out.println(request.getHeader("haha"));
         return "GET 你的名字是" + name;
     }
 
-    @PostMapping("/")
+    @PostMapping("/post")
     public String getNameByPost(@RequestParam String name) {
         return "POST 你的名字是" + name;
     }
