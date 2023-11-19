@@ -272,7 +272,7 @@ public class InterfaceInfoController {
      */
     @PostMapping("/invoke")
     public BaseResponse<Object> invokeInterfaceInfo(@RequestBody InterfaceInfoInvokeRequest interfaceInfoInvokeRequest,
-                                                      HttpServletRequest request) {
+                                                    HttpServletRequest request) {
         if (interfaceInfoInvokeRequest == null || interfaceInfoInvokeRequest.getId() <= 0) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
@@ -291,7 +291,7 @@ public class InterfaceInfoController {
         String secretKey = loginUser.getSecretKey();
         // 现在我们要根据用户自己的 ak、sk 调用，所以这个地方就不能复用 ApiClient 了。
         // 这里要新建一个 client，要不然始终用的是管理员的账户、密码来测试，这样肯定不对，也会存在刷量的风险。
-        ApiClient tempClient = new ApiClient(accessKey,secretKey);
+        ApiClient tempClient = new ApiClient(accessKey, secretKey);
         Gson gson = new Gson();
         com.api.project.model.User user = gson.fromJson(userRequestParams, com.api.project.model.User.class);
         String usernameByPost = tempClient.getUsernameByPost(user);
